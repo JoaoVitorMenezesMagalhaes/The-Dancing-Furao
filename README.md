@@ -8,13 +8,12 @@
 
     pygame.init()
 
-    surface = pygame.display.set_mode([600, 800])
+    surface = pygame.display.set_mode([400, 600])
 
-    arquivo = os.path.joint('imagem', 'background.jpg')
+    arquivo = os.path.join('imagem', 'background.jpg')
 
-    try:    
+    try:
         imagem = pygame.image.load('background.jpg')
-
-    except pygame.error:   
-        print('erro ao tentar ler imagem: logo.jpg')    
+    except pygame.error:
+        print('erro ao tentar ler imagem: background')
         sys.exit()
