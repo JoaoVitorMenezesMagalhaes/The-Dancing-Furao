@@ -13,6 +13,7 @@ surface = pygame.display.set_mode([600, 800])
 arquivo = os.path.joint('imagem', 'background.jpg')
 
 try:
+    
     imagem = pygame.image.load('background.jpg')
 
 except pygame.error:
