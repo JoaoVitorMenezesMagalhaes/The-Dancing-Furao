@@ -15,5 +15,14 @@
     try:
         imagem = pygame.image.load('background.jpg')
     except pygame.error:
-        print('erro ao tentar ler imagem: background')
+        print('erro ao tentar ler imagem: background.jpg')
         sys.exit()
+
+    while True:
+        eventos=pygame.event.get()
+        for evento in eventos:
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        surface.blit(imagem, [0,0])
+        pygame.display.flip()
