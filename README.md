@@ -24,5 +24,21 @@
             if evento.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+                    if evento.type == pygame.KEYDOWN:
+            if evento.key == pygame.K_LEFT:
+                try:
+                    imagem_1= pygame.image.load("furao 1 gambiarra.jpeg")
+            surface.blit(imagem_1, [400,320])
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_RIGHT:
+                    try:
+                        imagem_2= pygame.image.load("furao 2.jpeg")
+            surface.blit(imagem_1, [400,320])
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_DOWN:
+                    try:
+                        imagem_3= pygame.image.load("furao 3.jpeg")
+            surface.blit(imagem_1, [400,320])
+    surface.blit(imagem, [0,0])
         surface.blit(imagem, [0,0])
         pygame.display.flip()
