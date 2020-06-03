@@ -2,7 +2,7 @@
 #Um furão dançando no ritmo do ragatanga
 #Luca Oshiro, João Vitor Magalhães, Mariana Cezar
 
-   import pygame
+    import pygame
     import os
     import sys
 
