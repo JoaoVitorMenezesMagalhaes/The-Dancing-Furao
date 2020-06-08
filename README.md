@@ -20,8 +20,6 @@
 
     while True:
         eventos=pygame.event.get()
-        surface.blit(imagem, [0,0])
-        pygame.display.flip()
         for evento in eventos:
             if evento.type == pygame.QUIT:
                 pygame.quit()
@@ -34,7 +32,7 @@
                         print('erro ao tentar ler imagem: furao 2 resized t.png')
                         sys.exit()
                     surface.blit(imagem_1, [250,280])
-                    pygame.display.update()
+                    pygame.display.flip()
                 if evento.key == pygame.K_UP:
                     try:
                         imagem_1= pygame.image.load("furao 3 resized t.png")
@@ -42,7 +40,7 @@
                         print('erro ao tentar ler imagem: furao 3 resized t.png')
                         sys.exit()      
                     surface.blit(imagem_1, [250,280])
-                    pygame.display.update()
+                    pygame.display.flip()
                 if evento.key == pygame.K_LEFT:
                     try:
                         imagem_1= pygame.image.load("furao 1 resized t.png")
@@ -50,7 +48,7 @@
                         print('erro ao tentar ler imagem: furao 1 resized t.png')
                         sys.exit()
                     surface.blit(imagem_1, [250,280])
-                    pygame.display.update()
+                    pygame.display.flip()
                 if evento.key == pygame.K_DOWN:
                     try:
                         imagem_1= pygame.image.load("furao 4 resized t.png")
@@ -58,4 +56,6 @@
                         print('erro ao tentar ler imagem: furao 4 resized t.png')
                         sys.exit()
                     surface.blit(imagem_1, [250,280])
-                    pygame.display.update()
+                    pygame.display.flip()
+            surface.blit(imagem, [0,0])
+                
