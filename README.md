@@ -11,9 +11,9 @@
 
     surface = pygame.display.set_mode([750, 600])
 
-    arquivo = os.path.join('imagem', 'background gam.png')
+    arquivo = os.path.join('The-Dancing-Furao', 'background gam.png')
 
-    mov = 10
+    mov = 6
 
     xb = 150
     xc = 250
@@ -27,7 +27,11 @@
 
     #imagem de fundo
     try:
-        fundo = pygame.image.load('background gam.png')
+        fundo = pygame.image.load(arquivo)    
+        musica = os.path.join('The-Dancing-Furao', 'Rouge - Ragatanga (Vídeo Clipe Oficial) HD.mp3')
+        pygame.mixer.music.load(musica)
+        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.play(1)
     except pygame.error:
         print('erro ao tentar ler imagem: background gam.png')
         sys.exit()
@@ -36,7 +40,7 @@
     try:
         imagem_1 = pygame.image.load('furao 3 resized t.png')
     except pygame.error:
-        print('erro ao tentar ler imagem: background gam.png')
+        print('erro ao tentar ler imagem: furao')
         sys.exit()
 
     try:
@@ -121,29 +125,29 @@
                     except pygame.error:
                         print('erro ao tentar ler imagem: furao 4 resized t.png')
                         sys.exit()
-                    
-    if (yb <= -180):
-        yb = randint(700,1500)
-    if (yc <=-180):
-        yc = randint(700,1500)
-    if (yd <=-180):
-        yd = randint(700,1500)
-    if (ye <= -180):
-        ye = randint(700,1500)
-        
-    yb -= mov        
-    yc -= mov
-    yd -= mov
-    ye -= mov
-    
-    surface.blit(fundo, [0,0])#insere a imagem de fundo
-    surface.blit(seta_baixo_m, [xb, yb])
-    surface.blit(seta_cima_m, [xc, yc])
-    surface.blit(seta_direita_m, [xd, yd])
-    surface.blit(seta_esquerda_m, [xe, ye])
-    surface.blit(imagem_1, [250, 280])
-    surface.blit(seta_baixo, [150,200])
-    surface.blit(seta_cima, [250,200])
-    surface.blit(seta_direita, [350,200])
-    surface.blit(seta_esquerda, [450,200])
-    pygame.display.flip()#atualiza a tela
+
+        if (yb <= -180):
+            yb = randint(700,1500)
+        if (yc <=-180):
+            yc = randint(700,1500)
+        if (yd <=-180):
+            yd = randint(700,1500)
+        if (ye <= -180):
+            ye = randint(700,1500)
+
+        yb -= mov        
+        yc -= mov
+        yd -= mov
+        ye -= mov
+
+        surface.blit(fundo, [0,0])#insere a imagem de fundo
+        surface.blit(seta_baixo_m, [xb, yb])
+        surface.blit(seta_cima_m, [xc, yc])
+        surface.blit(seta_direita_m, [xd, yd])
+        surface.blit(seta_esquerda_m, [xe, ye])
+        surface.blit(imagem_1, [250, 280])
+        surface.blit(seta_baixo, [150,200])
+        surface.blit(seta_cima, [250,200])
+        surface.blit(seta_direita, [350,200])
+        surface.blit(seta_esquerda, [450,200])
+        pygame.display.flip()#atualiza a tela
