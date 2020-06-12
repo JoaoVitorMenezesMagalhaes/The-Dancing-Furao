@@ -9,7 +9,10 @@
 
     pygame.init()
 
-    surface = pygame.display.set_mode([750, 600])
+    largura = 750
+    altura = 600 
+
+    surface = pygame.display.set_mode([largura, altura])
 
     arquivo = os.path.join('The-Dancing-Furao', 'background gam.png')
 
@@ -17,8 +20,7 @@
     vermelho = (255, 0, 0)
     preto = (0,0,0)
     verde = (0,255,0)
-    largura = 750
-    altura = 600 
+
 
     #fundo2 = pygame.display.set_mode(largura, altura)
     #fonte = pygame.font.SysFont(None, 20)
@@ -58,12 +60,12 @@
     clicar = False
     while menu:
         surface.fill(branco)
-        texto('The Dancing Furão', fonte, vermelho, surface, 240, 100)
+        texto('The Dancing Furão', fonte, vermelho, surface, 245, 100)
         px, py = pygame.mouse.get_pos()
 
-        botao1 = pygame.Rect(280, 200, 150, 50)
-        botao2 = pygame.Rect(280, 300, 150, 50)
-        botao3 = pygame.Rect(280, 400, 150, 50)
+        botao1 = pygame.Rect(300, 200, 150, 50)
+        botao2 = pygame.Rect(300, 300, 150, 50)
+        botao3 = pygame.Rect(300, 400, 150, 50)
         if botao1.collidepoint((px,py)):
             if clicar:
                 pass
@@ -130,32 +132,6 @@
         print('erro ao tentar ler imagem: seta4.png')
         sys.exit()
 
-    #setas que se movem
-    try:
-        seta_baixo_m = pygame.image.load('seta1.png')
-    except pygame.error:
-        print('erro ao tentar ler imagem: seta1.png')
-        sys.exit()
-
-    try:
-        seta_cima_m = pygame.image.load('seta2.png')
-    except pygame.error:
-        print('erro ao tentar ler imagem: seta2.png')
-        sys.exit()
-
-    try:
-        seta_direita_m = pygame.image.load('seta3.png')
-    except pygame.error:
-        print('erro ao tentar ler imagem: seta3.png')
-        sys.exit()
-
-    try:
-        seta_esquerda_m = pygame.image.load('seta4.png')
-    except pygame.error:
-        print('erro ao tentar ler imagem: seta4.png')
-        sys.exit()
-
-
     #loop
     while True:
         eventos=pygame.event.get()
@@ -204,10 +180,10 @@
         ye -= mov
 
         surface.blit(fundo, [0,0])#insere a imagem de fundo
-        surface.blit(seta_baixo_m, [xb, yb])
-        surface.blit(seta_cima_m, [xc, yc])
-        surface.blit(seta_direita_m, [xd, yd])
-        surface.blit(seta_esquerda_m, [xe, ye])
+        surface.blit(seta_baixo, [xb, yb])
+        surface.blit(seta_cima, [xc, yc])
+        surface.blit(seta_direita, [xd, yd])
+        surface.blit(seta_esquerda, [xe, ye])
         surface.blit(imagem_1, [250, 280])
         surface.blit(seta_baixo, [150,200])
         surface.blit(seta_cima, [250,200])
