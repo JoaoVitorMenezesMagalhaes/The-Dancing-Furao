@@ -112,28 +112,28 @@
                     print('erro ao tentar ler imagem: furao 4 resized t.png')
                     sys.exit()
 
-    if (yb <= -180):
-        yb = randint(700,1500)
-    if (yc <=-180):
-        yc = randint(700,1500)
-    if (yd <=-180):
-        yd = randint(700,1500)
-    if (ye <= -180):
-        ye = randint(700,1500)
+        if (yb <= -180):
+            yb = randint(700,1500)
+        if (yc <=-180):
+            yc = randint(700,1500)
+        if (yd <=-180):
+            yd = randint(700,1500)
+        if (ye <= -180):
+            ye = randint(700,1500)
 
-    yb -= mov        
-    yc -= mov
-    yd -= mov   
-    ye -= mov 
+        yb -= mov        
+        yc -= mov
+        yd -= mov   
+        ye -= mov 
 
-    surface.blit(fundo, [0,0])#insere a imagem de fundo
-    surface.blit(seta_baixo, [xb, yb])
-    surface.blit(seta_cima, [xc, yc])
-    surface.blit(seta_direita, [xd, yd])
-    surface.blit(seta_esquerda, [xe, ye])
-    surface.blit(imagem_1, [250, 280])
-    surface.blit(seta_baixo, [150,200])
-    surface.blit(seta_cima, [250,200])
-    surface.blit(seta_direita, [350,200])
-    surface.blit(seta_esquerda, [450,200])
-    pygame.display.flip()#atualiza a tela
+        surface.blit(fundo, [0,0])#insere a imagem de fundo
+        surface.blit(seta_baixo, [xb, yb])
+        surface.blit(seta_cima, [xc, yc])
+        surface.blit(seta_direita, [xd, yd])
+        surface.blit(seta_esquerda, [xe, ye])
+        surface.blit(imagem_1, [250, 280])
+        surface.blit(seta_baixo, [150,200])
+        surface.blit(seta_cima, [250,200])
+        surface.blit(seta_direita, [350,200])
+        surface.blit(seta_esquerda, [450,200])
+        pygame.display.flip()#atualiza a tela
