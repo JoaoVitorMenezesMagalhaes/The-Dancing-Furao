@@ -391,6 +391,154 @@
             surface.blit(texto1, pos_texto1)#insere a quantidade de erros
             pygame.display.flip()#atualiza a tela
 
+
+    #loop do me adota
+    def me_adota():
+
+        #pontuação 
+        texto = fonte.render("Pontuação: ", True, (preto), (branco))
+        pos_texto = texto.get_rect()
+        pos_texto.center = (85,50)
+        pontos = 0
+
+        #erros
+        texto1 = fonte.render("Erros: ", True, (preto), (branco))
+        pos_texto1 = texto1.get_rect()
+        pos_texto1.center = (665,50)
+        erro = 0
+
+        #fundo
+        try: 
+            fundo = pygame.image.load(arquivo) 
+        except pygame.error:
+            print('erro ao tentar ler imagem: fundo')
+            sys.exit()
+
+        #imagem do furão inicial 
+        try:
+            imagem_1 = pygame.image.load('furao 3 resized t.png')
+        except pygame.error:
+            print('erro ao tentar ler imagem: furao')
+            sys.exit()
+
+        #música
+        try:
+            musica2 = os.path.join('The-Dancing-Furao', 'mc-mirella-me-adota.mp3')
+            pygame.mixer.music.load(musica2)
+            pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.play(1)
+        except pygame.error:
+            print('erro ao tentar ler musica2')
+            sys.exit()
+
+
+        #imagens das setas
+        try:
+            seta_baixo = pygame.image.load('seta1.png')
+        except pygame.error:
+            print('erro ao tentar ler imagem: seta1.png')
+            sys.exit()
+
+        try:
+            seta_cima = pygame.image.load('seta2.png')
+        except pygame.error:
+            print('erro ao tentar ler imagem: seta2.png')
+            sys.exit()
+
+        try:
+            seta_direita = pygame.image.load('seta3.png')
+        except pygame.error:
+            print('erro ao tentar ler imagem: seta3.png')
+            sys.exit()
+
+        try:
+            seta_esquerda = pygame.image.load('seta4.png')
+        except pygame.error:
+            print('erro ao tentar ler imagem: seta4.png')
+            sys.exit()
+
+        #velocidade das setas     
+        mov = 8
+
+        #posições da setas nos eixos x, y
+        yfixo = 200
+
+        xb = 150
+        xc = 250
+        xd = 350
+        xe = 450
+
+        yb = randint(700,1500)
+        yc = randint(700,1500)
+        yd = randint(700,1500)
+        ye = randint(700,1500)
+
+        #loop
+        while True: 
+            eventos=pygame.event.get()
+            for evento in eventos:
+                if evento.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+                if evento.type == pygame.KEYDOWN:
+                    if evento.key == pygame.K_RIGHT: #seta para direita
+                         try:
+                             imagem_1= pygame.image.load("furao 2 resized t.png")
+                         except pygame.error:
+                             print('erro ao tentar ler imagem: furao 2 resized t.png')
+                             sys.exit()
+                         if abs(yd-yfixo)<100:#pontuação
+                              pontos += 100
+                              texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                         else:#pontuação e erros
+                             erro += 1
+                             texto1 = fonte.render("Erros: "+str(erro), True, (preto), (branco))
+                             pontos -= 50
+                             texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                    if evento.key == pygame.K_UP: #seta para cima
+                         try:
+                             imagem_1= pygame.image.load("furao 3 resized t.png")
+                         except pygame.error:
+                             print('erro ao tentar ler imagem: furao 3 resized t.png')
+                             sys.exit()      
+                         if abs(yc-yfixo)<100:#pontuação
+                             pontos += 100
+                             texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                         else:#pontuação e erros
+                            erro += 1
+                            pontos -= 50
+                            texto1 = fonte.render("Erros: "+str(erro), True, (preto), (branco))
+                            texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                    if evento.key == pygame.K_LEFT: #seta para a esquerda
+                        try:
+                            imagem_1= pygame.image.load("furao 1 resized t.png")
+                        except pygame.error:
+                            print('erro ao tentar ler imagem: furao 1 resized t.png')
+                            sys.exit()
+                        if abs(ye-yfixo)<100:#pontuação
+                            pontos += 100
+                            texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                        else:#pontuação e erros
+                            erro += 1
+                            pontos -= 50
+                            texto1 = fonte.render("Erros: "+str(erro), True, (preto), (branco))
+                            texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                    if evento.key == pygame.K_DOWN: #seta para baixo
+                        try:
+                            imagem_1= pygame.image.load("furao 4 resized t.png")
+                        except pygame.error:
+                            print('erro ao tentar ler imagem: furao 4 resized t.png')
+                            sys.exit()
+                        if abs(yd-yfixo)<100:#pontuação
+                            pontos += 100
+                            texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+                        else:#pontuação e erros
+                            erro += 1
+                            pontos -= 50
+                            texto1 = fonte.render("Erros: "+str(erro), True, (preto), (branco))
+                            texto = fonte.render("Pontuação: "+str(pontos), True, (preto), (branco))
+
             #cria as setas embaixo da tela em posições aleatórias
             if (yb <= -180):
                 yb = randint(700,1500)
@@ -440,7 +588,7 @@
                 madagascar()
         if botao3.collidepoint((px,py)):
             if clicar:
-                pass
+                me_adota()
         pygame.draw.rect(surface, (preto), botao1)
         pygame.draw.rect(surface, (vermelho), botao2)
         pygame.draw.rect(surface, (verde), botao3)
