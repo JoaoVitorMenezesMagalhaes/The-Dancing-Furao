@@ -35,12 +35,13 @@
         textorect.topleft = (x,y)
         surf.blit (textobj, textorect)
 
+    #tela final
     def tela_final():
         clicar = False
         tela_final1 = True
         while tela_final1:
             try: 
-                fundo = pygame.image.load(arquivo) 
+                fundo = pygame.image.load('background gam.png')  
             except pygame.error:
                 print('erro ao tentar ler imagem: fundo')
                 sys.exit()
@@ -53,7 +54,7 @@
 
             if botao4.collidepoint((ax,ay)):
                 if clicar:
-                    menu()
+                    return
             if botao5.collidepoint((ax,ay)):
                 if clicar:
                     pygame.quit()
@@ -91,9 +92,9 @@
 
         #fundo
         try: 
-            fundo = pygame.image.load(arquivo) 
+            fundo = pygame.image.load('background gam.png') 
         except pygame.error:
-            print('erro ao tentar ler imagem: fundo')
+            print('erro ao tentar ler imagem: fundo1')
             sys.exit()
 
         #imagem do furão inicial 
@@ -105,9 +106,8 @@
 
         #música
         try:
-            musica = os.path.join('The-Dancing-Furao', 'Rouge - Ragatanga (Vídeo Clipe Oficial) HD.mp3')
-            pygame.mixer.music.load(musica)
             pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.load('Rouge - Ragatanga (Vídeo Clipe Oficial) HD.mp3')
             pygame.mixer.music.play(1)
         except pygame.error:
             print('erro ao tentar ler musica')
@@ -156,7 +156,8 @@
         ye = randint(700,1500)
 
         t0 = pygame.time.get_ticks()
-        TEMPO_MUSICA = 121000
+        TEMPO_MUSICA = 198000
+
         #loop
         while True: 
             t1 = pygame.time.get_ticks()
@@ -276,9 +277,9 @@
 
         #fundo
         try: 
-            fundo = pygame.image.load(arquivo) 
-        except pygame.error:
-            print('erro ao tentar ler imagem: fundo')
+           fundo = pygame.image.load('background gam.png')
+        except pygame.error: 
+            print('erro ao tentar ler imagem: fundo2')
             sys.exit()
 
         #imagem do furão inicial 
@@ -290,8 +291,7 @@
 
         #música
         try:
-            musica1 = os.path.join('The-Dancing-Furao', '01 -  CD Edy Lemond - Promocional Julho 2015 - Madagascar.mp3')
-            pygame.mixer.music.load(musica1)
+            pygame.mixer.music.load('01 -  CD Edy Lemond - Promocional Julho 2015 - Madagascar.mp3')
             pygame.mixer.music.set_volume(0.2)
             pygame.mixer.music.play(1)
         except pygame.error:
@@ -461,9 +461,9 @@
 
         #fundo
         try: 
-            fundo = pygame.image.load(arquivo) 
+            fundo = pygame.image.load('background gam.png')  
         except pygame.error:
-            print('erro ao tentar ler imagem: fundo')
+            print('erro ao tentar ler imagem: fundo3')
             sys.exit()
 
         #imagem do furão inicial 
@@ -475,8 +475,7 @@
 
         #música
         try:
-            musica2 = os.path.join('The-Dancing-Furao', 'mc-mirella-me-adota.mp3')
-            pygame.mixer.music.load(musica2)
+            pygame.mixer.music.load('mc-mirella-me-adota.mp3')
             pygame.mixer.music.set_volume(0.2)
             pygame.mixer.music.play(1)
         except pygame.error:
@@ -532,8 +531,7 @@
             t1 = pygame.time.get_ticks()
             if t1 - t0 > TEMPO_MUSICA:
                 tela_final()
-                False
-                return
+                return tela_final
             eventos=pygame.event.get()
             for evento in eventos:
                 if evento.type == pygame.QUIT:
@@ -633,7 +631,7 @@
     clicar = False 
     while menu:
         try: 
-            fundo = pygame.image.load(arquivo) 
+            fundo = pygame.image.load('background gam.png') 
         except pygame.error:
             print('erro ao tentar ler imagem: fundo')
             sys.exit()
@@ -671,3 +669,5 @@
                     clicar = True
 
         pygame.display.update()
+
+ 
