@@ -25,7 +25,7 @@
     arquivo = os.path.join('The-Dancing-Furao', 'background gam.png')
 
     #fonte dos textos
-    fonte = pygame.font.SysFont(None, 40)
+    fonte = pygame.font.SysFont(None, 50)
     fonte2 = pygame.font.SysFont(None, 30)
     #condições da tela inicial
     menu = True 
@@ -34,6 +34,45 @@
         textorect = textobj.get_rect()
         textorect.topleft = (x,y)
         surf.blit (textobj, textorect)
+
+    def tela_final():
+        clicar = False
+        tela_final1 = True
+        while tela_final1:
+            try: 
+                fundo = pygame.image.load(arquivo) 
+            except pygame.error:
+                print('erro ao tentar ler imagem: fundo')
+                sys.exit()
+            surface.blit(fundo,[0,0])
+            texto('Fim de jogo', fonte, vermelho,surface, 245, 100)
+            ax, ay = pygame.mouse.get_pos()
+
+            botao4 = pygame.Rect(300, 200, 150, 50)
+            botao5 = pygame.Rect(300, 300, 150, 50)
+
+            if botao4.collidepoint((ax,ay)):
+                if clicar:
+                    menu()
+            if botao5.collidepoint((ax,ay)):
+                if clicar:
+                    pygame.quit()
+                    sys.exit()
+
+            pygame.draw.rect(surface, (branco), botao4)
+            pygame.draw.rect(surface, (branco), botao5)
+            texto('Voltar ao menu', fonte2, preto, surface, 321, 217)
+            texto('Sair do jogo', fonte2, preto, surface, 315, 317)
+
+            clicar = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1 :
+                        clicar = True
+            pygame.display.update()
 
     #loop do ragatanga
     def ragatanga():
@@ -116,8 +155,15 @@
         yd = randint(700,1500)
         ye = randint(700,1500)
 
+        t0 = pygame.time.get_ticks()
+        TEMPO_MUSICA = 121000
         #loop
         while True: 
+            t1 = pygame.time.get_ticks()
+            if t1 - t0 > TEMPO_MUSICA:
+                tela_final()
+                False
+                return
             eventos=pygame.event.get()
             for evento in eventos:
                 if evento.type == pygame.QUIT:
@@ -294,8 +340,14 @@
         yd = randint(700,1500)
         ye = randint(700,1500)
 
+        t0 = pygame.time.get_ticks()
+        TEMPO_MUSICA = 223000
         #loop
         while True: 
+            t1 = pygame.time.get_ticks()
+            if t1 - t0 > TEMPO_MUSICA:
+                tela_final()
+                return
             eventos=pygame.event.get()
             for evento in eventos:
                 if evento.type == pygame.QUIT:
@@ -473,8 +525,15 @@
         yd = randint(700,1500)
         ye = randint(700,1500)
 
+        t0 = pygame.time.get_ticks()
+        TEMPO_MUSICA = 164000
         #loop
         while True: 
+            t1 = pygame.time.get_ticks()
+            if t1 - t0 > TEMPO_MUSICA:
+                tela_final()
+                False
+                return
             eventos=pygame.event.get()
             for evento in eventos:
                 if evento.type == pygame.QUIT:
@@ -573,7 +632,12 @@
     #menu da tela inicial 
     clicar = False 
     while menu:
-        surface.fill(branco)
+        try: 
+            fundo = pygame.image.load(arquivo) 
+        except pygame.error:
+            print('erro ao tentar ler imagem: fundo')
+            sys.exit()
+        surface.blit(fundo,[0,0])
         texto('The Dancing Furão', fonte, vermelho, surface, 245, 100)
         px, py = pygame.mouse.get_pos()
 
@@ -589,12 +653,13 @@
         if botao3.collidepoint((px,py)):
             if clicar:
                 me_adota()
-        pygame.draw.rect(surface, (preto), botao1)
-        pygame.draw.rect(surface, (vermelho), botao2)
-        pygame.draw.rect(surface, (verde), botao3)
-        texto('Ragatanga', fonte2, branco, surface, 321, 217)
-        texto('Madagascar', fonte2, branco, surface, 315, 317)
-        texto('Me adota', fonte2, branco, surface, 330, 417)
+
+        pygame.draw.rect(surface, (branco), botao1)
+        pygame.draw.rect(surface, (branco), botao2)
+        pygame.draw.rect(surface, (branco), botao3)
+        texto('Ragatanga', fonte2, preto, surface, 321, 217)
+        texto('Madagascar', fonte2, preto, surface, 315, 317)
+        texto('Me adota', fonte2, preto, surface, 330, 417)
 
         clicar = False
         for event in pygame.event.get():
