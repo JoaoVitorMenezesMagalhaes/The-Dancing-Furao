@@ -140,7 +140,7 @@
             sys.exit()
 
         #velocidade das setas    
-        mov = 10
+        mov = 12
 
         #posições da setas nos eixos x, y
         yfixo = 200
@@ -156,7 +156,7 @@
         ye = randint(700,1500)
 
         t0 = pygame.time.get_ticks()
-        TEMPO_MUSICA = 198000
+        TEMPO_MUSICA = 216000
 
         #loop
         while True: 
@@ -325,7 +325,7 @@
             sys.exit()
 
         #velocidade das setas     
-        mov = 8
+        mov = 9
 
         #posições da setas nos eixos x, y
         yfixo = 200
@@ -509,7 +509,7 @@
             sys.exit()
 
         #velocidade das setas     
-        mov = 5
+        mov = 7
 
         #posições da setas nos eixos x, y
         yfixo = 200
@@ -669,5 +669,3 @@
                     clicar = True
 
         pygame.display.update()
-
- 
