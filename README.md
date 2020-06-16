@@ -46,7 +46,7 @@
                 print('erro ao tentar ler imagem: fundo')
                 sys.exit()
             surface.blit(fundo,[0,0])
-            texto('Fim de jogo', fonte, vermelho,surface, 245, 100)
+            texto('Fim de jogo', fonte, vermelho,surface, 290, 100)
             ax, ay = pygame.mouse.get_pos()
 
             botao4 = pygame.Rect(300, 200, 150, 50)
@@ -62,7 +62,7 @@
 
             pygame.draw.rect(surface, (branco), botao4)
             pygame.draw.rect(surface, (branco), botao5)
-            texto('Voltar ao menu', fonte2, preto, surface, 321, 217)
+            texto('Voltar ao menu', fonte2, preto, surface, 303, 217)
             texto('Sair do jogo', fonte2, preto, surface, 315, 317)
 
             clicar = False
