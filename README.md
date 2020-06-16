@@ -140,7 +140,7 @@
             sys.exit()
 
         #velocidade das setas    
-        mov = 15
+        mov = 10
 
         #posições da setas nos eixos x, y
         yfixo = 200
@@ -325,7 +325,7 @@
             sys.exit()
 
         #velocidade das setas     
-        mov = 11
+        mov = 8
 
         #posições da setas nos eixos x, y
         yfixo = 200
@@ -509,7 +509,7 @@
             sys.exit()
 
         #velocidade das setas     
-        mov = 8
+        mov = 5
 
         #posições da setas nos eixos x, y
         yfixo = 200
